@@ -1,0 +1,68 @@
+/* Custom styles to enhance Tailwind */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background: linear-gradient(145deg, #ffffff, #f9fafb);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, #f9fafb, #ffffff);
+}
+
+.product-image {
+    height: 220px;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+.modal-image {
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.star-rating {
+    color: #f59e0b;
+    font-size: 1.1rem;
+}
+
+.category-button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-button:hover {
+    background-color: #1f2937;
+    color: #ffffff;
+}
+
+.category-button.active {
+    background-color: #111827;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+#productModal.show .max-w-3xl {
+    animation: zoomIn 0.3s ease-in-out forwards;
+}
+
+#productModal {
+    backdrop-filter: blur(4px);
+}
+
+.view-details-btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-details-btn:hover {
+    background-color: #1f2937;
+    transform: scale(1.05);
+}
