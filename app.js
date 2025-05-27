@@ -58,18 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display products in cards
     function displayProducts(products) {
         productsContainer.innerHTML = products.map(product => `
-            <div class="product-card bg-white rounded-lg shadow-md p-6 cursor-pointer" data-id="${product.id}">
-                <div class="flex items-center justify-center h-56 mb-4">
+            <div class="product-card bg-white rounded-lg shadow-md cursor-pointer" data-id="${product.id}">
+                <div class="flex items-center justify-center h-56 p-4">
                     <img src="${product.image}" alt="${escapeHtml(product.title)}" class="product-image">
                 </div>
-                <h3 class="text-xl font-semibold mt-4 text-gray-900 line-clamp-2" title="${escapeHtml(product.title)}">${escapeHtml(product.title)}</h3>
-                <p class="text-gray-500 mt-2 capitalize text-sm">${formatCategoryName(product.category)}</p>
-                <p class="text-green-600 font-bold mt-2 text-lg">$${product.price.toFixed(2)}</p>
-                <div class="star-rating mt-3 flex items-center">
-                    ${generateStars(product.rating.rate)}
-                    <span class="text-gray-500 text-sm ml-2">(${product.rating.count})</span>
+                <div class="product-card-content">
+                    <div class="product-card-details">
+                        <h3 class="text-xl font-semibold text-gray-900 line-clamp-2 mb-2" title="${escapeHtml(product.title)}">${escapeHtml(product.title)}</h3>
+                        <p class="text-gray-500 capitalize text-sm mb-2">${formatCategoryName(product.category)}</p>
+                        <p class="text-green-600 font-bold text-lg mb-3">${product.price.toFixed(2)}</p>
+                        <div class="star-rating flex items-center">
+                            ${generateStars(product.rating.rate)}
+                            <span class="text-gray-500 text-sm ml-2">(${product.rating.count})</span>
+                        </div>
+                    </div>
+                    <div class="product-card-button">
+                        <button class="view-details-btn w-full bg-gray-800 text-white py-2 rounded-lg text-sm font-medium" onclick="event.stopPropagation(); showProductDetails(${product.id})">View Details</button>
+                    </div>
                 </div>
-                <button class="view-details-btn mt-4 w-full bg-gray-800 text-white py-2 rounded-lg text-sm font-medium" onclick="event.stopPropagation(); showProductDetails(${product.id})">View Details</button>
             </div>
         `).join('');
 
